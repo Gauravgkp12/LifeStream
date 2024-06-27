@@ -1,0 +1,14 @@
+{
+  "name": "lifestream",
+  "version": "1.0.0",
+  "description": "mern blood bank application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "apnacoding",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
