@@ -1,19 +1,30 @@
 const express=require('express');
+const dotenv=require('dotenv')
+const colors=require('colors')
+const morgan=require('morgan')
+const cors=require('cors');
+const connectDB = require('./config/db');
+
+// dot config
+dotenv.config()
+
+//mongo connection
+connectDB()
 
 // REST obj
 const app=express();
 
-//test route
-app.get('/',(req,res)=>{
-    res.status(200).json({
-        message: "welcom to our application",
-    })
-})
+//middlewares
+app.use(express.json())
+app.use(cors())
+app.use(morgan('dev'))
+
+app.use("/api/v1/test",require("./routes/testRoutes"));
 
 //port
-const PORT=8080;
+const PORT=process.env.PORT || 8080;
 
 //listen
 app.listen(PORT,()=>{
-    console.log('Node Server is Running');
+    console.log(`Node server is Running on port ${process.env.PORT}`.bgBlue.white);
 })
