@@ -21,6 +21,14 @@ app.use(morgan('dev'))
 
 app.use("/api/v1/test",require("./routes/testRoutes"));
 app.use("/api/v1/auth", require("./routes/authRoutes"));
+
+app.get("/", (req, res) => {
+  res.send("<h1>Welcome to Lifestream app</h1>");
+});
+
+
+
+
 //port
 const PORT=process.env.PORT || 8080;
 
